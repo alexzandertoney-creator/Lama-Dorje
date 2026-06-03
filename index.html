@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddhist Monk in Poland | Biography</title>
+    <style>
+        /* --- Design System & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f7f5f0; /* Calm, stone/paper white tone */
+            color: #332d27; /* Dark charcoal/earth tone */
+            line-height: 1.7;
+            padding: 0;
+        }
+
+        /* --- Layout Structure --- */
+        header {
+            background-color: #8c3b23; /* Warm terracotta/monk robe inspired color */
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* --- Navigation Tabs --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav button:hover {
+            color: #8c3b23;
+        }
+
+        nav button.active {
+            color: #8c3b23;
+            border-bottom: 3px solid #8c3b23;
+            font-weight: 600;
+        }
+
+        /* --- Content Sections --- */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .tab-content {
+            display: none; /* Hidden by default, toggled via JS */
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block; /* Shown when active */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #8c3b23;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        /* --- Gallery System --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .photo-placeholder {
+            background-color: #eae6df;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            border: 2px dashed #bbb;
+            color: #777;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .photo-placeholder {
+    width: 100%;               /* Fills the grid column widthwise */
+    aspect-ratio: 5 / 4;       /* Forces the exact rectangle shape of the placeholder */
+    object-fit: cover;         /* Crops the photo perfectly so it doesn't squish or stretch */
+    border-radius: 4px;        /* Softens the corners slightly */
+    background-color: #eae6df; /* Fallback color while the image is loading */
+    display: block;            /* Ensures proper spacing */
+}
+
+        /* --- Contact Form & Links --- */
+        .contact-links {
+            margin-bottom: 2.5rem;
+            background: #fcfbfa;
+            padding: 1.5rem;
+            border-left: 4px solid #d4a373;
+            border-radius: 4px;
+        }
+
+        .contact-links a {
+            color: #8c3b23;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fafafa;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #8c3b23;
+            background-color: #fff;
+        }
+
+        button.btn-submit {
+            background-color: #8c3b23;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button.btn-submit:hover {
+            background-color: #6e2e1b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            nav { flex-direction: column; }
+            nav button { border-bottom: none; border-left: 3px solid transparent; text-align: left; }
+            nav button.active { border-bottom: none; border-left: 3px solid #8c3b23; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Banner Area -->
+    <header>
+        <div class="profile-container">
+    <img src="Profile.jpg" alt="Profile Picture" class="profile-pic">
+    
+    <div class="profile-text">
+        <h1>Venerable Lama Dorje</h1>
+        <p>A Buddhist monk living and teaching in Krakow, Poland</p>
+    </div>
+</div>
+
+<style>
+    /* Layout styling to align everything to the left */
+    .profile-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem; /* Space between image and text */
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+    }
+
+    /* The exact image modifications you asked for */
+    .profile-pic {
+        width: 300px;
+        height: 300px;
+        object-fit: cover; /* Prevents the image from stretching/distorting */
+        border-radius: 0;   /* Removes the circle crop completely */
+    }
+
+    /* Responsive fix for smaller mobile screens */
+    @media (max-width: 768px) {
+        .profile-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .profile-pic {
+            width: 200px; /* Scales down nicely on phones */
+            height: 200px;
+        }
+    }
+</style>
+
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav>
+        <button class="tab-btn active" onclick="openTab(event, 'bio')">Biography</button>
+        <button class="tab-btn" onclick="openTab(event, 'galeria')">Photo Gallery</button>
+        <button class="tab-btn" onclick="openTab(event, 'events')">Events</button>
+        <button class="tab-btn" onclick="openTab(event, 'kontakt')">Contact</button>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container">
+
+        <!-- Tab 1: Biography -->
+        <section id="bio" class="tab-content active">
+            <h2>Biography</h2>
+            <p><strong>Early Years & Ordination:</strong> Lama Dorje began his Buddhist path in his early twenties in Kyoto, with the Rinzai and Soto Zen schools of Japan. After 25 years of Zen practice in the lineages of Seung Sahn Su Nim and Suzuki Roshi, he encountered great masters in the Tibetan traditions and eventually met his primary teacher, the renowned master and scholar, Thrangu Rinpoche.</p>
+            <p><strong>Teaching Methodology:</strong> After completing the traditional 3-year retreat, Thrangu Rinpoche directed Lama Dorje to begin teaching. Rather than emphasising any one Buddhist school, Lama Dorje speaks of that which is common to all Buddhist schools; the path of kindness and an open heart, living in the present, and discovering freedom from the obstacles we habitually create. </p>
+            <p><strong>Activities in Poland:</strong> In person, whether the context is formal Buddhist teachings or finding our way to a daily life of compassion, Lama Dorje aims to present the seemingly complex practices and words of Buddhism in the simple, clear, life and meditation instructions they really are.</p>
+
+        </section>
+
+        <!-- Tab 2: Gallery -->
+        <section id="galeria" class="tab-content">
+            <h2>Photo Gallery</h2>
+           <div class="gallery">
+                <img src="Gallery 1.jpg" alt="Gallery Image 1" class="photo-placeholder">
+                <img src="Gallery 2.jpeg" alt="Gallery Image 2" class="photo-placeholder">
+                <img src="Gallery 3.jpeg" alt="Gallery Image 3" class="photo-placeholder">
+            </div>
+        </section>
+        <!-- Tab 3: Upcoming Events -->
+        <section id="events" class="tab-content">
+    <h2>Upcoming Events & Retreats</h2>
+    <p>Join us for meditation, teachings, and community gatherings across Poland. All are welcome.</p>
+    
+    <div class="events-list">
+        
+        <!-- Event 1 -->
+        <div class="event-card">
+            <div class="event-date">
+                <span class="day">15</span>
+                <span class="month">Jun</span>
+            </div>
+            <div class="event-details">
+                <h3>Weekend Zen Meditation Retreat</h3>
+                <p class="event-meta"><strong>Where:</strong> Main Center, Warsaw & Online</p>
+                <p class="event-desc">A silent weekend retreat focusing on zazen (seated meditation) and mindful walking. Suitable for both beginners and experienced practitioners.</p>
+            </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="event-card">
+            <div class="event-date">
+                <span class="day">28</span>
+                <span class="month">Jun</span>
+            </div>
+            <div class="event-details">
+                <h3>Public Dharma Talk & Dharma Discussion</h3>
+                <p class="event-meta"><strong>Where:</strong> Public Library, Kraków</p>
+                <p class="event-desc">An open lecture on incorporating mindfulness into daily modern life, followed by an open Q&A session and tea.</p>
+            </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="event-card">
+            <div class="event-date">
+                <span class="day">12</span>
+                <span class="month">Jul</span>
+            </div>
+            <div class="event-details">
+                <h3>Introduction to Mindfulness for Beginners</h3>
+                <p class="event-meta"><strong>Where:</strong> Peace Studio, Wrocław</p>
+                <p class="event-desc">Learn the core postures, breathing techniques, and mental habits needed to build a resilient daily meditation practice.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        <!-- Tab 4: Contact & Links -->
+        <section id="kontakt" class="tab-content">
+            <h2>Get in Touch</h2>
+            
+            <div class="contact-links">
+                <p><strong>Email:</strong> <a href="mailto:contact@example.com">contact@example.com</a></p>
+                <p><strong>Social Media / Center:</strong> <a href="https://www.facebook.com/people/Cracow-Open-Buddhist-Group/61590731840739/" target="_blank">Visit our Facebook Page</a></p>
+                <p><strong>Location:</strong>Kraków</p>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Buddhist Monk in Poland. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Handling Interactivity -->
+    <script>
+        // Function to switch between tabs smoothly
+        function openTab(evt, tabName) {
+            // Hide all tab contents
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // Remove the 'active' class from all buttons
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Basic placeholder function for form submission
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevents the page from refreshing
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Simple visual feedback for the user
+            alert(`Thank you, ${name}! Your message (from ${email}) has been simulated as sent. \n\n(Note: To make this form send actual emails to your inbox later, you will just need to link it to a backend tool like Formspree or EmailJS).`);
+            
+            // Clear the form fields
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>
