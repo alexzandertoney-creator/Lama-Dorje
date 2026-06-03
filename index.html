@@ -24,26 +24,48 @@
         header {
             background-color: #8c3b23; /* Warm terracotta/monk robe inspired color */
             color: #ffffff;
-            text-align: center;
             padding: 4rem 1rem;
         }
 
-        header h1 {
+        /* Profile Grid Layout for Header */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 3rem; /* Generous gap between image and text */
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            text-align: left; /* Forces text to align left */
+        }
+
+        /* The Profile Image (Fixed to be a perfect, uncropped square) */
+        .profile-pic {
+            width: 300px;       /* Controlled size on desktop */
+            height: 300px;      /* Matches width to keep it perfectly square */
+            object-fit: contain;/* Guarantees the absolute whole image is visible */
+            border-radius: 0;   /* Keeps sharp edges */
+            background-color: transparent;
+        }
+
+        .profile-text h1 {
             font-size: 2.5rem;
             font-weight: 300;
             letter-spacing: 2px;
             margin-bottom: 0.5rem;
         }
 
-        header p {
+        .profile-text p {
             font-style: italic;
             opacity: 0.9;
+            margin-bottom: 0;
         }
 
         /* --- Navigation Tabs --- */
         nav {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap; /* Allows tabs to wrap neatly if they run out of space */
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             position: sticky;
@@ -54,8 +76,8 @@
         nav button {
             background: none;
             border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
             cursor: pointer;
             color: #666;
             transition: all 0.3s ease;
@@ -105,8 +127,76 @@
             padding-bottom: 0.5rem;
         }
 
+        h3 {
+            color: #332d27;
+            margin: 1.5rem 0 0.5rem 0;
+            font-weight: 500;
+        }
+
         p {
             margin-bottom: 1.2rem;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Quotes Styling --- */
+        .quote-item {
+            position: relative;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            background: #faf9f6;
+            border-left: 4px solid #8c3b23;
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        .quote-author {
+            display: block;
+            text-align: right;
+            font-size: 0.9rem;
+            font-style: normal;
+            color: #777;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* --- Donation Card Layout --- */
+        .donation-box {
+            background: #faf9f6;
+            border: 1px solid #eae6df;
+            border-radius: 6px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+        .bank-details {
+            background: #ffffff;
+            border: 1px dashed #ccc;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+        .btn-donate {
+            display: inline-block;
+            background-color: #8c3b23;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn-donate:hover {
+            background-color: #6e2e1b;
         }
 
         /* --- Gallery System --- */
@@ -118,29 +208,84 @@
         }
 
         .photo-placeholder {
-            background-color: #eae6df;
-            aspect-ratio: 4/3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            border: 2px dashed #bbb;
-            color: #777;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
+            width: 100%;               
+            aspect-ratio: 5 / 4;       
+            object-fit: cover;         
+            border-radius: 4px;        
+            background-color: #eae6df; 
+            display: block;            
         }
 
-        .photo-placeholder {
-    width: 100%;               /* Fills the grid column widthwise */
-    aspect-ratio: 5 / 4;       /* Forces the exact rectangle shape of the placeholder */
-    object-fit: cover;         /* Crops the photo perfectly so it doesn't squish or stretch */
-    border-radius: 4px;        /* Softens the corners slightly */
-    background-color: #eae6df; /* Fallback color while the image is loading */
-    display: block;            /* Ensures proper spacing */
-}
+        /* --- Events Cards Layout --- */
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .event-card {
+            display: flex;
+            background: #faf9f6;
+            border: 1px solid #eae6df;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(140, 59, 35, 0.08);
+        }
+
+        .event-date {
+            background-color: #8c3b23;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 90px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .event-date .day {
+            font-size: 1.8rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .event-details {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .event-details h3 {
+            color: #332d27;
+            margin-bottom: 0.3rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .event-meta {
+            font-size: 0.9rem;
+            color: #8c3b23;
+            margin-bottom: 0.6rem;
+        }
+
+        .event-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 0;
+        }
 
         /* --- Contact Form & Links --- */
         .contact-links {
@@ -161,46 +306,6 @@
             text-decoration: underline;
         }
 
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 500;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #fafafa;
-            font-size: 1rem;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #8c3b23;
-            background-color: #fff;
-        }
-
-        button.btn-submit {
-            background-color: #8c3b23;
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        button.btn-submit:hover {
-            background-color: #6e2e1b;
-        }
-
         footer {
             text-align: center;
             padding: 3rem 1rem;
@@ -208,11 +313,28 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive adjustments */
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center; /* Center elements on phones */
+                gap: 1.5rem;
+            }
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
         @media (max-width: 600px) {
             nav { flex-direction: column; }
-            nav button { border-bottom: none; border-left: 3px solid transparent; text-align: left; }
+            nav button { border-bottom: none; border-left: 3px solid transparent; text-align: left; padding: 0.8rem 1.5rem; }
             nav button.active { border-bottom: none; border-left: 3px solid #8c3b23; }
+            
+            .event-card { flex-direction: column; }
+            .event-date { flex-direction: row; gap: 10px; min-width: 100%; padding: 0.6rem; }
+            .event-date .day { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -221,54 +343,23 @@
     <!-- Header / Banner Area -->
     <header>
         <div class="profile-container">
-    <img src="Profile.jpg" alt="Profile Picture" class="profile-pic">
-    
-    <div class="profile-text">
-        <h1>Venerable Lama Dorje</h1>
-        <p>A Buddhist monk living and teaching in Krakow, Poland</p>
-    </div>
-</div>
-
-<style>
-    /* Layout styling to align everything to the left */
-    .profile-container {
-        display: flex;
-        align-items: center;
-        gap: 2rem; /* Space between image and text */
-        max-width: 800px;
-        margin: 2rem auto;
-        padding: 0 1.5rem;
-    }
-
-    /* The exact image modifications you asked for */
-    .profile-pic {
-        width: 300px;
-        height: 300px;
-        object-fit: cover; /* Prevents the image from stretching/distorting */
-        border-radius: 0;   /* Removes the circle crop completely */
-    }
-
-    /* Responsive fix for smaller mobile screens */
-    @media (max-width: 768px) {
-        .profile-container {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .profile-pic {
-            width: 200px; /* Scales down nicely on phones */
-            height: 200px;
-        }
-    }
-</style>
-
+            <img src="Profile.jpg" alt="Venerable Lama Dorje" class="profile-pic">
+            <div class="profile-text">
+                <h1>Venerable Lama Dorje</h1>
+                <p>A Buddhist monk living and teaching in Kraków, Poland</p>
+            </div>
+        </div>
     </header>
 
     <!-- Navigation Tabs -->
     <nav>
         <button class="tab-btn active" onclick="openTab(event, 'bio')">Biography</button>
+        <button class="tab-btn" onclick="openTab(event, 'teachings')">Teachings</button>
+        <button class="tab-btn" onclick="openTab(event, 'quotes')">Quotes</button>
         <button class="tab-btn" onclick="openTab(event, 'galeria')">Photo Gallery</button>
         <button class="tab-btn" onclick="openTab(event, 'events')">Events</button>
         <button class="tab-btn" onclick="openTab(event, 'kontakt')">Contact</button>
+        <button class="tab-btn" onclick="openTab(event, 'donate')">Support / Donate</button>
     </nav>
 
     <!-- Main Content Container -->
@@ -280,77 +371,138 @@
             <p><strong>Early Years & Ordination:</strong> Lama Dorje began his Buddhist path in his early twenties in Kyoto, with the Rinzai and Soto Zen schools of Japan. After 25 years of Zen practice in the lineages of Seung Sahn Su Nim and Suzuki Roshi, he encountered great masters in the Tibetan traditions and eventually met his primary teacher, the renowned master and scholar, Thrangu Rinpoche.</p>
             <p><strong>Teaching Methodology:</strong> After completing the traditional 3-year retreat, Thrangu Rinpoche directed Lama Dorje to begin teaching. Rather than emphasising any one Buddhist school, Lama Dorje speaks of that which is common to all Buddhist schools; the path of kindness and an open heart, living in the present, and discovering freedom from the obstacles we habitually create. </p>
             <p><strong>Activities in Poland:</strong> In person, whether the context is formal Buddhist teachings or finding our way to a daily life of compassion, Lama Dorje aims to present the seemingly complex practices and words of Buddhism in the simple, clear, life and meditation instructions they really are.</p>
-
         </section>
 
-        <!-- Tab 2: Gallery -->
+        <!-- Tab 2: Buddha's Teachings -->
+        <section id="teachings" class="tab-content">
+            <h2>Buddha's Teachings</h2>
+            <p>The foundation of all Buddhist practice relies on recognizing our current state of mind and developing wisdom and compassion to see things as they truly are.</p>
+            
+            <h3>The Four Noble Truths</h3>
+            <p>These truths serve as a diagnostic map for understanding human dissatisfaction and path to mental freedom:</p>
+            <ol>
+                <li><strong>The Truth of Suffering (Dukkha):</strong> Life includes friction, instability, and dissatisfaction.</li>
+                <li><strong>The Truth of the Cause:</strong> Dissatisfaction arises from craving, attachment, and misjudging the nature of reality.</li>
+                <li><strong>The Truth of Cessation:</strong> It is entirely possible to bring an end to craving and attain deep peace (Nirvana).</li>
+                <li><strong>The Truth of the Path:</strong> The way out is accomplished by following the Eightfold Path.</li>
+            </ol>
+
+            <h3>The Noble Eightfold Path</h3>
+            <p>A practical guide divided into three essential aspects of life: Wisdom (Panna), Ethical Conduct (Sila), and Meditation (Samadhi).</p>
+            <ul>
+                <li>Right View & Right Intention</li>
+                <li>Right Speech, Right Action, & Right Livelihood</li>
+                <li>Right Effort, Right Mindfulness, & Right Concentration</li>
+            </ul>
+        </section>
+
+        <!-- Tab 3: Quotes -->
+        <section id="quotes" class="tab-content">
+            <h2>Words of Wisdom</h2>
+            <p>A collection of simple thoughts to encourage presence and mindfulness in daily life.</p>
+            
+            <div class="quote-item">
+                "Peace comes from within. Do not seek it without."
+                <span class="quote-author">— The Buddha</span>
+            </div>
+
+            <div class="quote-item">
+                "The mind is like water. When it's turbulent, it's difficult to see. When it's calm, everything becomes clear."
+                <span class="quote-author">— Dharma Reflection</span>
+            </div>
+
+            <div class="quote-item">
+                "If we can look with an open and kind heart at our struggles, the struggle itself begins to dissolve."
+                <span class="quote-author">— Lama Dorje</span>
+            </div>
+        </section>
+
+        <!-- Tab 4: Gallery -->
         <section id="galeria" class="tab-content">
             <h2>Photo Gallery</h2>
-           <div class="gallery">
+            <div class="gallery">
                 <img src="Gallery 1.jpg" alt="Gallery Image 1" class="photo-placeholder">
                 <img src="Gallery 2.jpeg" alt="Gallery Image 2" class="photo-placeholder">
                 <img src="Gallery 3.jpeg" alt="Gallery Image 3" class="photo-placeholder">
             </div>
         </section>
-        <!-- Tab 3: Upcoming Events -->
+
+        <!-- Tab 5: Upcoming Events -->
         <section id="events" class="tab-content">
-    <h2>Upcoming Events & Retreats</h2>
-    <p>Join us for meditation, teachings, and community gatherings across Poland. All are welcome.</p>
-    
-    <div class="events-list">
-        
-        <!-- Event 1 -->
-        <div class="event-card">
-            <div class="event-date">
-                <span class="day">15</span>
-                <span class="month">Jun</span>
-            </div>
-            <div class="event-details">
-                <h3>Weekend Zen Meditation Retreat</h3>
-                <p class="event-meta"><strong>Where:</strong> Main Center, Warsaw & Online</p>
-                <p class="event-desc">A silent weekend retreat focusing on zazen (seated meditation) and mindful walking. Suitable for both beginners and experienced practitioners.</p>
-            </div>
-        </div>
+            <h2>Upcoming Events & Retreats</h2>
+            <p>Join us for meditation, teachings, and community gatherings across Poland. All are welcome.</p>
+            
+            <div class="events-list">
+                <!-- Event 1 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">Jun</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Weekend Zen Meditation Retreat</h3>
+                        <p class="event-meta"><strong>Where:</strong> Main Center, Warsaw & Online</p>
+                        <p class="event-desc">A silent weekend retreat focusing on zazen (seated meditation) and mindful walking. Suitable for both beginners and experienced practitioners.</p>
+                    </div>
+                </div>
 
-        <!-- Event 2 -->
-        <div class="event-card">
-            <div class="event-date">
-                <span class="day">28</span>
-                <span class="month">Jun</span>
-            </div>
-            <div class="event-details">
-                <h3>Public Dharma Talk & Dharma Discussion</h3>
-                <p class="event-meta"><strong>Where:</strong> Public Library, Kraków</p>
-                <p class="event-desc">An open lecture on incorporating mindfulness into daily modern life, followed by an open Q&A session and tea.</p>
-            </div>
-        </div>
+                <!-- Event 2 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">28</span>
+                        <span class="month">Jun</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Public Dharma Talk & Dharma Discussion</h3>
+                        <p class="event-meta"><strong>Where:</strong> Public Library, Kraków</p>
+                        <p class="event-desc">An open lecture on incorporating mindfulness into daily modern life, followed by an open Q&A session and tea.</p>
+                    </div>
+                </div>
 
-        <!-- Event 3 -->
-        <div class="event-card">
-            <div class="event-date">
-                <span class="day">12</span>
-                <span class="month">Jul</span>
+                <!-- Event 3 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">12</span>
+                        <span class="month">Jul</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Introduction to Mindfulness for Beginners</h3>
+                        <p class="event-meta"><strong>Where:</strong> Peace Studio, Wrocław</p>
+                        <p class="event-desc">Learn the core postures, breathing techniques, and mental habits needed to build a resilient daily meditation practice.</p>
+                    </div>
+                </div>
             </div>
-            <div class="event-details">
-                <h3>Introduction to Mindfulness for Beginners</h3>
-                <p class="event-meta"><strong>Where:</strong> Peace Studio, Wrocław</p>
-                <p class="event-desc">Learn the core postures, breathing techniques, and mental habits needed to build a resilient daily meditation practice.</p>
-            </div>
-        </div>
+        </section>
 
-    </div>
-</section>
-
-        <!-- Tab 4: Contact & Links -->
+        <!-- Tab 6: Contact & Links -->
         <section id="kontakt" class="tab-content">
             <h2>Get in Touch</h2>
-            
             <div class="contact-links">
                 <p><strong>Email:</strong> <a href="mailto:contact@example.com">contact@example.com</a></p>
                 <p><strong>Social Media / Center:</strong> <a href="https://www.facebook.com/people/Cracow-Open-Buddhist-Group/61590731840739/" target="_blank">Visit our Facebook Page</a></p>
-                <p><strong>Location:</strong>Kraków</p>
+                <p><strong>Location:</strong> Kraków</p>
             </div>
+        </section>
 
+        <!-- Tab 7: Support / Donate -->
+        <section id="donate" class="tab-content">
+            <h2>Support the Sangha</h2>
+            <p>In accordance with Buddhist tradition, the teachings are offered freely. The monk's livelihood and the maintenance of our practice spaces rely entirely on the voluntary generosity (Dana) of the community.</p>
+            
+            <div class="donation-box">
+                <h3>Traditional Bank Transfer (Poland)</h3>
+                <p>You can make a direct donation to our local account support fund:</p>
+                <div class="bank-details">
+                    <strong>Account Name:</strong> Cracow Open Buddhist Group<br>
+                    <strong>Bank Name:</strong> [Your Polish Bank Name]<br>
+                    <strong>Account Number (PLN):</strong> <br>PL 00 0000 0000 0000 0000 0000 0000<br>
+                    <strong>Transfer Title:</strong> Donation for statutory goals / Darowizna na cele statutowe
+                </div>
+
+                <h3>Online Support</h3>
+                <p>If you prefer using quick payment links or international cards, you can use our external online platform:</p>
+                <a href="https://paypal.me/yourprofile" target="_blank" class="btn-donate">Support via PayPal / Card</a>
+            </div>
         </section>
 
     </div>
@@ -362,37 +514,19 @@
 
     <!-- JavaScript Handling Interactivity -->
     <script>
-        // Function to switch between tabs smoothly
         function openTab(evt, tabName) {
-            // Hide all tab contents
             const tabContents = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabContents.length; i++) {
                 tabContents[i].classList.remove("active");
             }
 
-            // Remove the 'active' class from all buttons
             const tabButtons = document.getElementsByClassName("tab-btn");
             for (let i = 0; i < tabButtons.length; i++) {
                 tabButtons[i].classList.remove("active");
             }
 
-            // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
-        }
-
-        // Basic placeholder function for form submission
-        function handleFormSubmit(event) {
-            event.preventDefault(); // Prevents the page from refreshing
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            // Simple visual feedback for the user
-            alert(`Thank you, ${name}! Your message (from ${email}) has been simulated as sent. \n\n(Note: To make this form send actual emails to your inbox later, you will just need to link it to a backend tool like Formspree or EmailJS).`);
-            
-            // Clear the form fields
-            document.getElementById('contactForm').reset();
         }
     </script>
 </body>
